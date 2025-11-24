@@ -196,7 +196,7 @@ class Animal:
             String describing the eating action
         """
         self._is_hungry = False
-        return f"{self._name} is eating... nom nom nom! 🍽️"
+        return f"{self._name} is eating..."
     
     def sleep(self) -> str:
         """
@@ -271,10 +271,10 @@ class Animal:
         
         # Check preconditions
         if self._is_hungry:
-            return f"{self._name} is too hungry to perform duty! Feed them first."
+            return f"❌ {self._name} is too hungry to perform duty! Feed them first."
         
         if self._is_sleepy:
-            return f"{self._name} is too sleepy to perform duty! Let them sleep first."
+            return f"❌ {self._name} is too sleepy to perform duty! Let them sleep first."
         
         return self._duty.execute(self._name)
     
@@ -285,15 +285,15 @@ class Animal:
         
         states = []
         if self._is_hungry:
-            states.append("🍖 Hungry")
+            states.append(" Hungry")
         if self._is_sleepy:
-            states.append("😴 Sleepy")
+            states.append(" Sleepy")
         
-        state_str = ", ".join(states) if states else "✅ Ready"
+        state_str = ", ".join(states) if states else "Ready"
         
         return (
             f"\n{'='*50}\n"
-            f"🐾 {self._name}\n"
+            f" {self._name}\n"
             f"{'='*50}\n"
             f"Type: {self.__class__.__name__}\n"
             f"Legs: {self._legs}\n"
@@ -351,11 +351,11 @@ class Dog(Animal):
 # ============================================================================
 
 if __name__ == "__main__":
-    print("🌾 Welcome to the Animal Farm! 🌾\n")
+    print("Welcome to the Animal Farm!\n")
     
     # Create a rooster that crows and lays eggs
     rooster = Bird(
-        name="Roger the Rooster",
+        name="Rooster",
         action=CrowAction(),
         duty=LayEggsDuty()
     )
@@ -368,7 +368,7 @@ if __name__ == "__main__":
     
     # Create a guard dog
     guard_dog = Dog(
-        name="Rex",
+        name="Bingo",
         action=BarkAction(),
         duty=GuardDuty()
     )
@@ -378,7 +378,7 @@ if __name__ == "__main__":
     print(guard_dog.perform_duty())
     
     print("\n" + "="*50)
-    print("Making Rex hungry...")
+    print("Making Bingo hungry...")
     print("="*50 + "\n")
     
     guard_dog.make_hungry()
@@ -392,6 +392,6 @@ if __name__ == "__main__":
     print("RUNTIME FLEXIBILITY DEMO (Checkpoint Question 1)")
     print("="*50 + "\n")
     
-    print("Changing Rex's action from Bark to Chase Sheep at runtime...")
+    print("Changing Bingo's action from Bark to Chase Sheep at runtime...")
     guard_dog.set_action(ChaseAction())
     print(guard_dog.perform_action())  # Now he chases sheep!

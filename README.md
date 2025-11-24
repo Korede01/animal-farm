@@ -118,13 +118,13 @@ from animal_farm import Bird, Dog, FlyAction, BarkAction, GuardDuty, LayEggsDuty
 
 # Create a flying bird
 eagle = Bird("Eddie", FlyAction(), LayEggsDuty())
-print(eagle.perform_action())  # "Eddie is flying high in the sky! 🦅"
-print(eagle.perform_duty())    # "Eddie has laid fresh eggs! 🥚"
+print(eagle.perform_action())  # "Eddie is flying high in the sky! "
+print(eagle.perform_duty())    # "Eddie has laid fresh eggs! "
 
 # Create a guard dog
 rex = Dog("Rex", BarkAction(), GuardDuty())
-print(rex.perform_action())    # "Rex barks loudly: Woof woof! 🐕"
-print(rex.perform_duty())      # "Rex is guarding the farm vigilantly! 🛡️"
+print(rex.perform_action())    # "Rex barks loudly: Woof woof! "
+print(rex.perform_duty())      # "Rex is guarding the farm vigilantly! "
 ```
 
 ### Runtime Flexibility (Checkpoint Q1)
@@ -134,11 +134,11 @@ from animal_farm import Dog, BarkAction, ChaseAction, GuardDuty
 
 # Create a dog that barks
 dog = Dog("Duke", BarkAction(), GuardDuty())
-print(dog.perform_action())  # "Duke barks loudly: Woof woof! 🐕"
+print(dog.perform_action())  # "Duke barks loudly: Woof woof! "
 
 # Change action at runtime - no need to create new instance!
 dog.set_action(ChaseAction())
-print(dog.perform_action())  # "Duke is chasing sheep across the field! 🐑"
+print(dog.perform_action())  # "Duke is chasing sheep across the field! "
 ```
 
 ### Easy Extensibility (Checkpoint Q2)
@@ -149,7 +149,7 @@ from animal_farm import Animal, Action, Duty
 # Add a new action
 class MeowAction(Action):
     def perform(self, animal_name: str) -> str:
-        return f"{animal_name} meows! 🐱"
+        return f"{animal_name} meows! "
     
     def get_name(self) -> str:
         return "Meow"
@@ -161,7 +161,7 @@ class Cat(Animal):
 
 # Use it immediately!
 cat = Cat("Whiskers", MeowAction(), CatchMiceDuty())
-print(cat.perform_action())  # "Whiskers meows! 🐱"
+print(cat.perform_action())  # "Whiskers meows! "
 ```
 
 ### State Management
@@ -173,25 +173,25 @@ dog = Dog("Buddy", BarkAction(), GuardDuty())
 
 # Dog gets hungry
 dog.make_hungry()
-print(dog.perform_duty())  # "❌ Buddy is too hungry to perform duty!"
+print(dog.perform_duty())  # "Buddy is too hungry to perform duty!"
 
 # Feed the dog
-print(dog.eat())           # "Buddy is eating... nom nom nom! 🍽️"
-print(dog.perform_duty())  # "Buddy is guarding the farm vigilantly! 🛡️"
+print(dog.eat())           # "Buddy is eating... nom nom nom! "
+print(dog.perform_duty())  # "Buddy is guarding the farm vigilantly! "
 ```
 
 ## 🧪 Test Coverage
 
 The test suite covers:
 
-✅ All basic requirements
-✅ Bird-specific requirements (2 legs, fly, crow)
-✅ Dog-specific requirements (4 legs, bark, chase)
-✅ State management (hungry/sleepy blocking duties)
-✅ Runtime flexibility
-✅ Extensibility
-✅ Edge cases
-✅ Integration scenarios
+✅ All basic requirements\
+✅ Bird-specific requirements (2 legs, fly, crow)\
+✅ Dog-specific requirements (4 legs, bark, chase)\
+✅ State management (hungry/sleepy blocking duties)\
+✅ Runtime flexibility\
+✅ Extensibility\
+✅ Edge cases\
+✅ Integration scenarios\
 
 ## 🎓 Design Rationale
 
@@ -259,8 +259,6 @@ No existing code needs to be modified. This is the **Open/Closed Principle** in 
 - ✅ **Clean code**: Follows PEP 8 style guide
 - ✅ **DRY principle**: No code duplication
 - ✅ **Error handling**: Validates preconditions with clear error messages
-- ✅ **Meaningful names**: Self-documenting code
-- ✅ **Emojis**: Makes output more engaging and readable 😊
 
 ## 🏆 Production-Ready Features
 
@@ -272,13 +270,3 @@ This solution demonstrates backend engineering best practices:
 - **Scalability**: Can easily grow with new requirements
 - **Documentation**: Well-commented and explained
 - **Defensive Programming**: Validates state before operations
-
-## 📝 License
-
-This is a coding challenge solution. Feel free to use it for learning purposes!
-
----
-
-**Author**: Backend Engineer Candidate  
-**Date**: November 24, 2025  
-**Challenge**: Animal Farm OOP Design
