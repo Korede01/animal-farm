@@ -36,7 +36,7 @@ def demo_basic_usage():
     print("\n" + "-"*60 + "\n")
     
     # Create a guard dog
-    guard_dog = Dog("Max", BarkAction(), GuardDuty())
+    guard_dog = Dog("Bingo", BarkAction(), GuardDuty())
     print(guard_dog.get_status())
     print(guard_dog.perform_action())
     print(guard_dog.perform_duty())
@@ -51,7 +51,7 @@ def demo_state_management():
     print("Roger tries to work...")
     print(rooster.perform_duty())
     
-    print("\n🍖 Roger gets hungry...")
+    print("\nRoger gets hungry...")
     rooster.make_hungry()
     print(rooster.get_status())
     print("\nRoger tries to work while hungry:")
@@ -143,7 +143,7 @@ def demo_extensibility():
     # New duty for cats
     class CatchMiceDuty(Duty):
         def execute(self, animal_name: str) -> str:
-            return f"{animal_name} is catching mice in the barn! 🐭"
+            return f"{animal_name} is catching mice in the barn!"
         
         def get_name(self) -> str:
             return "Catch Mice"
